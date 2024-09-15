@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
+using ContactMicroservice.Models;
 using Microsoft.EntityFrameworkCore;
+using UserMicroservice.Models;
 
-namespace ContactMicroservice.Models;
+namespace UsertMicroservice.Models;
 
 public partial class EconnectContext : DbContext
 {

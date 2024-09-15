@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ContactMicroservice.Models;
+namespace PropertyMicroservice.Models;
 
 public partial class Login
 {

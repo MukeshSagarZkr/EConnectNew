@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace UserMicroservice.Models;
+namespace PropertyMicroservice.Models;
 
 public partial class Contact
 {

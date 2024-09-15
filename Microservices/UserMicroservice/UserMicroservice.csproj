@@ -7,8 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Remove="Repository\ILoginRepository.cs" />
-    <Compile Remove="Repository\LoginRepository.cs" />
+    <None Include="UserMicroservice.http" />
   </ItemGroup>
 
   <ItemGroup>
@@ -24,7 +23,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Repository\" />
+    <ProjectReference Include="..\..\Middleware\Middleware.csproj" />
   </ItemGroup>
 
 </Project>

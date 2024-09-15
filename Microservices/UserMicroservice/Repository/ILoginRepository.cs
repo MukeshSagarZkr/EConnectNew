@@ -1,14 +1,14 @@
-﻿namespace UserMicroservice.Repository
+﻿using ContactMicroservice.Models;
+using UserMicroservice.Models;
+
+namespace UserMicroservice.Repository
 {
     public interface ILoginRepository
     {
-        IEnumerable<Login> GetAllLogins();
-        Login? GetLoginByName(string name);
-        Login? GetLoginById(int id);
-        void AddLogin(Login login);
-        void UpdateLogin(Login login);
-        void DeleteLogin(int id);
-        IEnumerable<Login> GetAllActiveLogins();
-        IEnumerable<Login> GetAllActiveLoginsByCompanyId(string id);
+        Task<IEnumerable<Login>> GetLoginsAsync();
+        Task<Login> GetLoginByIdAsync(int id);
+        Task AddLoginAsync(Login login);
+        Task UpdateLoginAsync(Login login);
+        Task DeleteLoginAsync(int id);
     }
 }
