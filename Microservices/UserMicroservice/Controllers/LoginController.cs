@@ -1,8 +1,8 @@
-﻿using ContactMicroservice.Models;
-using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UserMicroservice.Repository;
+using ContactMicroservice.Models;
 
 namespace UserMicroservice.Controllers
 {
