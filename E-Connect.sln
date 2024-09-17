@@ -7,10 +7,6 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Middlewares", "Middlewares"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Middleware", "Middleware\Middleware.csproj", "{3FA8FD09-301C-41BE-8645-E8C6C2B1B0D5}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{79DC8286-44E9-4872-A01E-06A0D591FD60}"
-EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EConnectGateways", "EConnectGateways\EConnectGateways.csproj", "{E3E495A7-9BD2-433E-AE5E-2CBE375B2B8C}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Microservices", "Microservices", "{5F423543-D55E-41D7-822A-FD206851BB81}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactMicroservice", "Microservices\ContactMicroservice\ContactMicroservice.csproj", "{8282AFD0-33AE-4FEB-BC64-615D9F08BD7F}"
@@ -18,6 +14,10 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PropertyMicroservice", "Microservices\PropertyMicroservice\PropertyMicroservice.csproj", "{70753FB2-BE1F-4766-8F01-F391C0C58B7E}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMicroservice", "Microservices\UserMicroservice\UserMicroservice.csproj", "{3A871B4D-8446-40B5-81AF-F749EA33F958}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{CAD6D110-9572-4B37-B393-3E0B3E30447E}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotGateways", "OcelotGateways\OcelotGateways.csproj", "{B78C0BEC-919D-413D-AEB1-58E3A2AB6E42}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -29,10 +29,6 @@ Global
 		{3FA8FD09-301C-41BE-8645-E8C6C2B1B0D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3FA8FD09-301C-41BE-8645-E8C6C2B1B0D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3FA8FD09-301C-41BE-8645-E8C6C2B1B0D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E3E495A7-9BD2-433E-AE5E-2CBE375B2B8C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E3E495A7-9BD2-433E-AE5E-2CBE375B2B8C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E3E495A7-9BD2-433E-AE5E-2CBE375B2B8C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E3E495A7-9BD2-433E-AE5E-2CBE375B2B8C}.Release|Any CPU.Build.0 = Release|Any CPU
 		{8282AFD0-33AE-4FEB-BC64-615D9F08BD7F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{8282AFD0-33AE-4FEB-BC64-615D9F08BD7F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8282AFD0-33AE-4FEB-BC64-615D9F08BD7F}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -45,16 +41,20 @@ Global
 		{3A871B4D-8446-40B5-81AF-F749EA33F958}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3A871B4D-8446-40B5-81AF-F749EA33F958}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3A871B4D-8446-40B5-81AF-F749EA33F958}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B78C0BEC-919D-413D-AEB1-58E3A2AB6E42}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B78C0BEC-919D-413D-AEB1-58E3A2AB6E42}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B78C0BEC-919D-413D-AEB1-58E3A2AB6E42}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B78C0BEC-919D-413D-AEB1-58E3A2AB6E42}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{3FA8FD09-301C-41BE-8645-E8C6C2B1B0D5} = {5ECC3002-68FD-4EDC-AC23-D62132DFC2F5}
-		{E3E495A7-9BD2-433E-AE5E-2CBE375B2B8C} = {79DC8286-44E9-4872-A01E-06A0D591FD60}
 		{8282AFD0-33AE-4FEB-BC64-615D9F08BD7F} = {5F423543-D55E-41D7-822A-FD206851BB81}
 		{70753FB2-BE1F-4766-8F01-F391C0C58B7E} = {5F423543-D55E-41D7-822A-FD206851BB81}
 		{3A871B4D-8446-40B5-81AF-F749EA33F958} = {5F423543-D55E-41D7-822A-FD206851BB81}
+		{B78C0BEC-919D-413D-AEB1-58E3A2AB6E42} = {CAD6D110-9572-4B37-B393-3E0B3E30447E}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {7EB26843-B637-4142-BC4D-92B220D291A3}

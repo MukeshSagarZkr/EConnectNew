@@ -1,9 +1,8 @@
-﻿using ContactMicroservice.Models;
+﻿using UserMicroservice.Models;
 using Microsoft.EntityFrameworkCore;
 using UserMicroservice.Repository;
-using UsertMicroservice.Models;
 
-namespace ContactMicroservice.Repository
+namespace UserMicroservice.Repository
 {
 	public class LoginRepository : ILoginRepository
 	{

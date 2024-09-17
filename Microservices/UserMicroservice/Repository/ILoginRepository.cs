@@ -1,5 +1,4 @@
-﻿using ContactMicroservice.Models;
-using UserMicroservice.Models;
+﻿using UserMicroservice.Models;
 
 namespace UserMicroservice.Repository
 {

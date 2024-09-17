@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace ContactMicroservice.Models;
+namespace UserMicroservice.Models;
 
 public partial class Login
 {
     public int LoginId { get; set; }
 
-    public int PropertyId { get; set; }
+    public int CompanyId { get; set; }
 
     public string? Login1 { get; set; }
 
@@ -16,8 +16,6 @@ public partial class Login
     public string? LoginType { get; set; }
 
     public string? EmailAddress { get; set; }
-
-    public string? Company { get; set; }
 
     public string? ShortName { get; set; }
 
@@ -41,5 +39,5 @@ public partial class Login
 
     public string? IsProcessed { get; set; }
 
-    public virtual Property Property { get; set; } = null!;
+    public virtual Company Company { get; set; } = null!;
 }

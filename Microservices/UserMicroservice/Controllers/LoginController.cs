@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UserMicroservice.Repository;
-using ContactMicroservice.Models;
+using UserMicroservice.Models;
 
 namespace UserMicroservice.Controllers
 {

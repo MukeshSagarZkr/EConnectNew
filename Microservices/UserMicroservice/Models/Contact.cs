@@ -1,5 +1,4 @@
-﻿using ContactMicroservice.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 
 namespace UserMicroservice.Models;
@@ -8,13 +7,13 @@ public partial class Contact
 {
     public int ContactId { get; set; }
 
-    public int PropertyId { get; set; }
+    public int CompanyId { get; set; }
 
     public string? FirstName { get; set; }
 
     public string? LastName { get; set; }
 
-    public string? PropertyName { get; set; }
+    public string? CompanyName { get; set; }
 
     public string? Address1 { get; set; }
 
@@ -76,7 +75,7 @@ public partial class Contact
 
     public string? WebSite { get; set; }
 
-    public string? PropertyType { get; set; }
+    public string? CompanyType { get; set; }
 
     public decimal? NoRooms { get; set; }
 
@@ -130,8 +129,6 @@ public partial class Contact
 
     public string? RecurringTotal { get; set; }
 
-    public string? CompanyName { get; set; }
-
     public string? BillingContacts { get; set; }
 
     public string? Email2 { get; set; }
@@ -164,5 +161,5 @@ public partial class Contact
 
     public string? IsProcessed { get; set; }
 
-    public virtual Property Property { get; set; } = null!;
+    public virtual Company Company { get; set; } = null!;
 }

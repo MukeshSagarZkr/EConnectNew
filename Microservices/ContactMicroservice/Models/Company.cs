@@ -3,13 +3,13 @@ using System.Collections.Generic;
 
 namespace ContactMicroservice.Models;
 
-public partial class Property
+public partial class Company
 {
-    public int PropertyId { get; set; }
+    public int CompanyId { get; set; }
 
-    public string? PropertyShortName { get; set; }
+    public string? CompanyShortName { get; set; }
 
-    public string? PropertyFullName { get; set; }
+    public string? CompanyFullName { get; set; }
 
     public bool? IsActive { get; set; }
 

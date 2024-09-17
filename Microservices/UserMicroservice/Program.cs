@@ -1,8 +1,7 @@
-using ContactMicroservice.Repository;
+using UserMicroservice.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Middleware;
-using UserMicroservice.Repository;
 
 var builder = WebApplication.CreateBuilder(args);
 
