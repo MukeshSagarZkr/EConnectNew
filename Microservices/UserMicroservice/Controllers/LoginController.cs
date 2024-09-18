@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UserMicroservice.Repository;
+using WebApi.Models;
 
 namespace UserMicroservice.Controllers
 {
@@ -10,81 +11,115 @@ namespace UserMicroservice.Controllers
 	[ApiController]
 	public class LoginController : ControllerBase
 	{
-		private readonly ILoginRepository _loginRepository;
+		private readonly ILoginService _loginRepository;
 
-		public LoginController(ILoginRepository loginRepository)
+		public LoginController(ILoginService loginRepository)
 		{
 			_loginRepository = loginRepository;
 		}
 
-		[HttpGet]
-		[Authorize]
-		public async Task<ActionResult<IEnumerable<Login>>> GetLogins()
-		{
-			return Ok(await _loginRepository.GetLoginsAsync());
-		}
 
-		[HttpGet("{id}")]
-		[Authorize]
-		public async Task<ActionResult<Login>> GetLogin(int id)
-		{
-			var login = await _loginRepository.GetLoginByIdAsync(id);
-			if (login == null)
+        [HttpPost("authenticate")]
+        public IActionResult Authenticate(AuthenticateRequest model)
+        {
+
+
+            // var json = new System.Web.Script.SerializationJavaScriptSerializer().Serialize(model);
+
+
+            var response = _loginRepository.Authenticate(model);
+			if (response == null)
 			{
-				return NotFound(new { message = "Login not found" });
+				return BadRequest(new { message = "Username or password is incorrect" });
 			}
-			return Ok(login);
-		}
+			else { return Ok(response); }
 
-		[HttpPost]
-		[Authorize]
-		public async Task<ActionResult> AddLogin([FromBody] Login logins)
-		{
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
+            //string remoteIpAddress = HttpContext.Connection.RemoteIpAddress.ToString();
+            //string APIName = new Uri(Request.GetDisplayUrl()).ToString();
 
-			await _loginRepository.AddLoginAsync(logins);
-			return CreatedAtAction(nameof(GetLogin), new { id = logins.LoginId }, logins);
-		}
+            /////check user already login
 
-		[HttpPut("{id}")]
-		[Authorize]
-		public async Task<ActionResult> UpdateLogin(int id, [FromBody] Login login)
-		{
-			if (id != login.LoginId)
-			{
-				return BadRequest(new { message = "Login ID mismatch" });
-			}
 
-			if (!ModelState.IsValid)
-			{
-				return BadRequest(ModelState);
-			}
+            //string userloginmassage = _userService.checkuserlogin(response.Id, model.RequestSource, model.forcefullylogin);
+            //if (userloginmassage == "false")
+            //{//,string DESIGNATION
+            //    _userService.SaveLoginData(response.Username, response.Token, response.Id, model, remoteIpAddress, APIName, response.RefreshToken, response.Institutecd, response.designation);
+            //    return Ok(response);
+            //}
+            //else
+            //{
+            //    return Ok(new { message = "User already login." });
+            //}
+        }
 
-			var existingLogin = await _loginRepository.GetLoginByIdAsync(id);
-			if (existingLogin == null)
-			{
-				return NotFound(new { message = "Login not found" });
-			}
+  //      [HttpGet]
+		//[Authorize]
+		//public async Task<ActionResult<IEnumerable<Login>>> GetLogins()
+		//{
+		//	return Ok(await _loginRepository.GetLoginsAsync());
+		//}
 
-			await _loginRepository.UpdateLoginAsync(login);
-			return NoContent();
-		}
+		//[HttpGet("{id}")]
+		//[Authorize]
+		//public async Task<ActionResult<Login>> GetLogin(int id)
+		//{
+		//	var login = await _loginRepository.GetLoginByIdAsync(id);
+		//	if (login == null)
+		//	{
+		//		return NotFound(new { message = "Login not found" });
+		//	}
+		//	return Ok(login);
+		//}
 
-		[HttpDelete("{id}")]
-		[Authorize]
-		public async Task<ActionResult> DeleteLogin(int id)
-		{
-			var existingLogin = await _loginRepository.GetLoginByIdAsync(id);
-			if (existingLogin == null)
-			{
-				return NotFound(new { message = "Login not found" });
-			}
+		//[HttpPost]
+		//[Authorize]
+		//public async Task<ActionResult> AddLogin([FromBody] Login logins)
+		//{
+		//	if (!ModelState.IsValid)
+		//	{
+		//		return BadRequest(ModelState);
+		//	}
 
-			await _loginRepository.DeleteLoginAsync(id);
-			return NoContent();
-		}
+		//	await _loginRepository.AddLoginAsync(logins);
+		//	return CreatedAtAction(nameof(GetLogin), new { id = logins.LoginId }, logins);
+		//}
+
+		//[HttpPut("{id}")]
+		//[Authorize]
+		//public async Task<ActionResult> UpdateLogin(int id, [FromBody] Login login)
+		//{
+		//	if (id != login.LoginId)
+		//	{
+		//		return BadRequest(new { message = "Login ID mismatch" });
+		//	}
+
+		//	if (!ModelState.IsValid)
+		//	{
+		//		return BadRequest(ModelState);
+		//	}
+
+		//	var existingLogin = await _loginRepository.GetLoginByIdAsync(id);
+		//	if (existingLogin == null)
+		//	{
+		//		return NotFound(new { message = "Login not found" });
+		//	}
+
+		//	await _loginRepository.UpdateLoginAsync(login);
+		//	return NoContent();
+		//}
+
+		//[HttpDelete("{id}")]
+		//[Authorize]
+		//public async Task<ActionResult> DeleteLogin(int id)
+		//{
+		//	var existingLogin = await _loginRepository.GetLoginByIdAsync(id);
+		//	if (existingLogin == null)
+		//	{
+		//		return NotFound(new { message = "Login not found" });
+		//	}
+
+		//	await _loginRepository.DeleteLoginAsync(id);
+		//	return NoContent();
+		//}
 	}
 }
