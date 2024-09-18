@@ -1,8 +1,8 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Entities.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UserMicroservice.Repository;
-using UserMicroservice.Models;
 
 namespace UserMicroservice.Controllers
 {
@@ -38,15 +38,15 @@ namespace UserMicroservice.Controllers
 
 		[HttpPost]
 		[Authorize]
-		public async Task<ActionResult> AddLogin([FromBody] Login login)
+		public async Task<ActionResult> AddLogin([FromBody] Login logins)
 		{
 			if (!ModelState.IsValid)
 			{
 				return BadRequest(ModelState);
 			}
 
-			await _loginRepository.AddLoginAsync(login);
-			return CreatedAtAction(nameof(GetLogin), new { id = login.LoginId }, login);
+			await _loginRepository.AddLoginAsync(logins);
+			return CreatedAtAction(nameof(GetLogin), new { id = logins.LoginId }, logins);
 		}
 
 		[HttpPut("{id}")]
