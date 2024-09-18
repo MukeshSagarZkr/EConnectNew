@@ -21,7 +21,12 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotGateways", "OcelotGat
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Models", "Models", "{9EF2BA8A-DE0F-49A9-BF5D-35FCCDCD19F5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Entities", "Entities\Entities.csproj", "{C642B403-0CDD-469E-9EEA-301EB08F43B3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "Entities\Entities.csproj", "{C642B403-0CDD-469E-9EEA-301EB08F43B3}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseScripts", "DatabaseScripts", "{E48FC6AA-9D4A-45F2-B74B-C51CAD6A1F74}"
+	ProjectSection(SolutionItems) = preProject
+		DatabaseScripts\EConnectDbScript.sql = DatabaseScripts\EConnectDbScript.sql
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
