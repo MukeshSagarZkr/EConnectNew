@@ -2,6 +2,7 @@ using UserMicroservice.Repository;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.OpenApi.Models;
 using Middleware;
+using Entities.Models;
 
 var builder = WebApplication.CreateBuilder(args);
 

@@ -1,6 +1,4 @@
-﻿using UserMicroservice.Models;
-
-namespace UserMicroservice.Repository
+﻿namespace Entities.Models
 {
     public interface ILoginRepository
     {
