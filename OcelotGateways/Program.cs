@@ -6,6 +6,10 @@ using System.Text;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddCors(options =>
+{
+	options.AddPolicy("CORSPolicy", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+});
 // Configure Ocelot
 builder.Configuration.AddJsonFile("ocelot.json");
 
@@ -27,10 +31,21 @@ builder.Services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
 
 // Register Ocelot services
 builder.Services.AddOcelot();
+builder.Services.AddControllers();
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
+app.UseSwagger();
+app.UseSwaggerUI();
+app.UseCors("CORSPolicy");
+app.UseHttpsRedirection();
+app.UseAuthorization();
+app.MapControllers();
+
 // Enable Ocelot Middleware
-app.UseOcelot().Wait();
+//app.UseOcelot().Wait();
+await app.UseOcelot();
 
 app.Run();
