@@ -17,7 +17,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "UserMicroservice", "Microse
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Gateways", "Gateways", "{CAD6D110-9572-4B37-B393-3E0B3E30447E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OcelotGateways", "OcelotGateways\OcelotGateways.csproj", "{B78C0BEC-919D-413D-AEB1-58E3A2AB6E42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OcelotGateways", "OcelotGateways\OcelotGateways.csproj", "{B78C0BEC-919D-413D-AEB1-58E3A2AB6E42}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DatabaseScripts", "DatabaseScripts", "{72774202-0EC1-487E-B3FB-E72E6B68D7D2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
