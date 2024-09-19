@@ -46,7 +46,8 @@ public partial class EconnectContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString);
+        //  => optionsBuilder.UseSqlServer(ConfigurationManager.ConnectionStrings["MyConnectionString"].ConnectionString); 
+        => optionsBuilder.UseSqlServer("Data Source=DESKTOP-NGSKJ08;persist security info=True; Integrated Security=SSPI; Initial Catalog=EConnect;TrustServerCertificate=true;");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

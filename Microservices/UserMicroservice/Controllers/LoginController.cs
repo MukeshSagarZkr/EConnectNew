@@ -1,5 +1,6 @@
 ﻿using Entities.Models;
 using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using UserMicroservice.Repository;
@@ -7,7 +8,8 @@ using WebApi.Models;
 
 namespace UserMicroservice.Controllers
 {
-	[Route("api/[controller]")]
+    
+    [Route("api/[controller]")]
 	[ApiController]
 	public class LoginController : ControllerBase
 	{

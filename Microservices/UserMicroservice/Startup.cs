@@ -22,9 +22,19 @@ namespace UserMicroservice
 		// add services to the DI container
 		public void ConfigureServices(IServiceCollection services)
 		{
-		  
-			services.AddCors();
-			services.AddControllers();
+
+            //services.AddCors();
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowSpecificOrigin", builder =>
+                {
+                    builder.WithOrigins("http://localhost:4200")  // Allow only this origin
+                           .AllowCredentials()  // Allow credentials
+                           .AllowAnyHeader()  // Allow any header
+                           .AllowAnyMethod();  // Allow any HTTP method (GET, POST, etc.)
+                });
+            });
+            services.AddControllers();
 
 			// configure strongly typed settings object
 			services.Configure<AppSettings>(Configuration.GetSection("AppSettings"));
@@ -53,14 +63,17 @@ namespace UserMicroservice
 		{
 			app.UseRouting();
 
-			// global cors policy
-			app.UseCors(x => x
-				.AllowAnyOrigin()
-				.AllowAnyMethod()
-				.AllowAnyHeader());
+            app.UseCors("AllowSpecificOrigin");
 
-			// custom jwt auth middleware
-			app.UseMiddleware<JwtMiddleware>();
+
+            // global cors policy
+            //app.UseCors(x => x
+            //	.AllowAnyOrigin()
+            //	.AllowAnyMethod()
+            //	.AllowAnyHeader());
+
+            // custom jwt auth middleware
+            app.UseMiddleware<JwtMiddleware>();
 		  //  app.UseMiddleware<RequestLoggingMiddleware>();
 			app.UseEndpoints(x => x.MapControllers());
 		   
